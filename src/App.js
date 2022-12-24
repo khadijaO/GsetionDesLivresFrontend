@@ -36,159 +36,160 @@ function App() {
 
 
   if (!token) {
-    return <Login setToken={setToken} />
+    return <Login/>
   }
 
 
-  const logout = async e => {
-    setToken(null)
-  }
+  // const logout = async e => {
+  //   setToken(null)
+  // }
 
   // setUser(decoded)
-  if (token.role[0] === "ROLE_ADMIN") {
+  // if (token.role[0] === "ROLE_ADMIN") {
 
-    return (
-      <div className="wrapper">
-        <h1>My Books</h1>
-
-
-
-        <Router>
-          <div className="App">
-            <nav>
-              <ul>
-                <li>
-
-                  <Link to="/"> <span class="material-icons-outlined"> Home </span></Link>
-                </li>
-                <li>
-                  <Link to="/Commandes"><span class="material-icons-outlined"> Commandes </span></Link>
-                </li>
-                <li>
-                  <Link to="/Genres"><span class="material-icons-outlined"> Genres </span></Link>
-                </li>
-
-                <li>
-                  <Link to="/Livres"><span class="material-icons-outlined"> Livres </span></Link>
-                </li>
-
-                <li className='ima'>
-                  <img src={logo} class="profile" />
-                  <ul>
-                    <li class="sub-item">
-                      <span class="material-icons-outlined">  </span>
-                      <p>USER INFORMATION</p>
-
-
-                    </li>
-                    <li class="sub-item">
-
-                      <span class="material-icons-outlined">  </span>
-                      <p>{token.name} </p>
-                      <p>|| </p>
-                      <p>{token.role[0]}</p>
-
-                    </li>
-
-                    <li class="sub-item">
-                      <span class="material-icons-outlined">  </span>
-                      <p>Update My profil</p>
-                    </li>
-                    <li class="sub-item" onClick={logout}>
-                      <span class="material-icons-outlined">  </span>
-                      <p>Logout</p>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-            <br></br>
-            <Routes>
-              <Route exact path='/' element={< Dashboared />}></Route>
-              <Route exact path='/Livres' element={< Livres />}></Route>
-              <Route exact path='/Commandes' element={< Commandes />}></Route>
-              <Route exact path='/Genres' element={<AllGenres />}></Route>
-
-            </Routes> </div>
-        </Router>
-
-      </div >
-    );
-  }
-  if (token.role[0] === "ROLE_USER") {
-    return (<div>
-      <div className="wrapper">
-        <h1>My Books</h1>
+  //   return (
+  //     <div className="wrapper">
+  //       <h1>My Books</h1>
 
 
 
-        <Router>
-          <div className="App">
-            <nav className='nav'>
-              <ul className='data'>
-                <li>
+  //       <Router>
+  //         <div className="App">
+  //           <nav>
+  //             <ul>
+  //               <li>
 
-                  <Link  className="linki"to="/"> <span class="material-icons-outlined"> Home </span></Link>
-                </li>
+  //                 <Link to="/"> <span class="material-icons-outlined"> Home </span></Link>
+  //               </li>
+  //               <li>
+  //                 <Link to="/Commandes"><span class="material-icons-outlined"> Commandes </span></Link>
+  //               </li>
+  //               <li>
+  //                 <Link to="/Genres"><span class="material-icons-outlined"> Genres </span></Link>
+  //               </li>
 
-                <li>
-                  <Link to="/Genres"><span class="material-icons-outlined"> Genres </span></Link>
-                </li>
-                <li>
-                  <Link to="/Livres"><span class="material-icons-outlined"> Livres </span></Link>
-                </li>
-                <li >
+  //               <li>
+  //                 <Link to="/Livres"><span class="material-icons-outlined"> Livres </span></Link>
+  //               </li>
 
-                  <Link to="/add-livre"><span class="material-icons-outlined"> add new book </span></Link>
-                </li>
-
-
-
-                <li className='ima'>
-                  <img src={logo} class="profile" />
-                  <ul>
-                    <li class="sub-item">
-                      <span class="material-icons-outlined">  </span>
-                      <p>USER INFORMATION</p>
+  //               <li className='ima'>
+  //                 <img src={logo} class="profile" />
+  //                 <ul>
+  //                   <li class="sub-item">
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>USER INFORMATION</p>
 
 
-                    </li>
-                    <li class="sub-item">
+  //                   </li>
+  //                   <li class="sub-item">
 
-                      <span class="material-icons-outlined">  </span>
-                      <p>{token.name} </p>
-                      <p>|| </p>
-                      <p>{token.role[0]}</p>
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>{token.name} </p>
+  //                     <p>|| </p>
+  //                     <p>{token.role[0]}</p>
 
-                    </li>
+  //                   </li>
 
-                    <li class="sub-item">
-                      <span class="material-icons-outlined">  </span>
-                      <p>Update My profil</p>
-                    </li>
-                    <li class="sub-item" onClick={logout}>
-                      <span class="material-icons-outlined">  </span>
-                      <p>Logout</p>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-            <br></br>
-            <Routes>
-              <Route exact path='/' element={< Dashboared />}></Route>
-              <Route exact path='/livres' element={< AllLivres />}></Route>
-              <Route exact path='/add-livre' element={< AddLivre />}></Route>
+  //                   <li class="sub-item">
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>Update My profil</p>
+  //                   </li>
+  //                   <li class="sub-item" onClick={logout}>
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>Logout</p>
+  //                   </li>
+  //                 </ul>
+  //               </li>
+  //             </ul>
+  //           </nav>
+  //           <br></br>
+  //           <Routes>
+  //             <Route exact path='/' element={< Dashboared />}></Route>
+  //             <Route exact path='/Livres' element={< Livres />}></Route>
+  //             <Route exact path='/Commandes' element={< Commandes />}></Route>
+  //             <Route exact path='/Genres' element={<AllGenres />}></Route>
 
-              <Route exact path='/Commandes' element={< Commandes />}></Route>
-              <Route exact path='/Genres' element={<AllGenres />}></Route>
+  //           </Routes> </div>
+  //       </Router>
 
-            </Routes> </div>
-        </Router>
+  //     </div >
+  //   );
+  // }
+  // if (token.role[0] === "ROLE_USER") {
+  //   return (<div>
+  //     <div className="wrapper">
+  //       <h1>My Books</h1>
 
-      </div >
-    </div>)
-  }
+
+
+  //       <Router>
+  //         <div className="App">
+  //           <nav className='nav'>
+  //             <ul className='data'>
+  //               <li>
+
+  //                 <Link  className="linki"to="/"> <span class="material-icons-outlined"> Home </span></Link>
+  //               </li>
+
+  //               <li>
+  //                 <Link to="/Genres"><span class="material-icons-outlined"> Genres </span></Link>
+  //               </li>
+  //               <li>
+  //                 <Link to="/Livres"><span class="material-icons-outlined"> Livres </span></Link>
+  //               </li>
+  //               <li >
+
+  //                 <Link to="/add-livre"><span class="material-icons-outlined"> add new book </span></Link>
+  //               </li>
+
+
+
+  //               <li className='ima'>
+  //                 <img src={logo} class="profile" />
+  //                 <ul>
+  //                   <li class="sub-item">
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>USER INFORMATION</p>
+
+
+  //                   </li>
+  //                   <li class="sub-item">
+
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>{token.name} </p>
+  //                     <p>|| </p>
+  //                     <p>{token.role[0]}</p>
+
+  //                   </li>
+
+  //                   <li class="sub-item">
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>Update My profil</p>
+  //                   </li>
+  //                   <li class="sub-item" onClick={logout}>
+  //                     <span class="material-icons-outlined">  </span>
+  //                     <p>Logout</p>
+  //                   </li>
+  //                 </ul>
+  //               </li>
+  //             </ul>
+  //           </nav>
+  //           <br></br>
+  //           <Routes>
+  //             <Route exact path='/' element={< Dashboared />}></Route>
+  //             <Route exact path='/livres' element={< AllLivres />}></Route>
+  //             <Route exact path='/add-livre' element={< AddLivre />}></Route>
+
+  //             <Route exact path='/Commandes' element={< Commandes />}></Route>
+  //             <Route exact path='/Genres' element={<AllGenres />}></Route>
+
+  //           </Routes> </div>
+  //       </Router>
+
+  //     </div >
+  //   </div>)
+  // }
+  return(<div>hi</div>)
 }
 
 export default App;

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import { url } from './utils';
+
 function AllGenres() {
     const [genres, setGenres] = useState([]);
 
     useEffect(() => {
 
-        axios.get("http://localhost:8080/allGenres").then((response) => {
+        axios.get(`${url}/allGenres`).then((response) => {
 
             setGenres(response.data)
         },

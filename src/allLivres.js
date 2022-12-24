@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
+import { url } from './utils';
 function AllLivres() {
     const [books, setBook] = useState([]);
     const [genres, setGenres] = useState([]);
 
     useEffect(() => {
 
-        axios.get("http://localhost:8080/allLivres").then((response) => {
+        axios.get(`${url}/allLivres`).then((response) => {
 
             setBook(response.data)
         });
-        axios.get("http://localhost:8080/allGenres").then((response) => {
+        axios.get(`${url}/allGenres`).then((response) => {
 
             setGenres(response.data)
         },

@@ -3,6 +3,7 @@ import './Login.css';
 import PropTypes from 'prop-types';
 import  { useState, useEffect } from 'react'
 import axios from "axios"
+import { url } from './utils';
 
 
 export default function Login({setToken ,setUser}) {
@@ -11,7 +12,8 @@ export default function Login({setToken ,setUser}) {
     const handleSubmit = async e => {
         e.preventDefault();
        
-        axios.post('http://localhost:8080/api/auth/signin', {
+        axios.post(`${url}api/auth/signin`, {
+          
             name: username,
             password: password
           })
